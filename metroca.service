@@ -1,0 +1,16 @@
+[Unit]
+Description=Start metroca uvicorn
+After=network-online.target firewalld.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=david
+Group=david
+WorkingDirectory=/home/david/dev/metroca
+ExecStart=/home/david/dev/metroca/start_app.sh
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
